@@ -29,14 +29,29 @@
    <string>RobotUI</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="front_camera_label">
+   <widget class="QLabel" name="nav_primary_camera_label">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>851</width>
-      <height>471</height>
+      <width>854</width>
+      <height>480</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>854</width>
+      <height>480</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>3840</width>
+      <height>2160</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(22, 51, 79)</string>
     </property>
     <property name="locale">
      <locale language="English" country="UnitedStates"/>
@@ -48,13 +63,13 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="rear_camera_label">
+   <widget class="QLabel" name="nav_secondary_camera_label">
     <property name="geometry">
      <rect>
       <x>30</x>
       <y>30</y>
-      <width>221</width>
-      <height>141</height>
+      <width>220</width>
+      <height>140</height>
      </rect>
     </property>
     <property name="locale">
@@ -67,8 +82,8 @@
    <widget class="QPushButton" name="snapshot_button">
     <property name="geometry">
      <rect>
-      <x>730</x>
-      <y>160</y>
+      <x>755</x>
+      <y>220</y>
       <width>51</width>
       <height>51</height>
      </rect>
@@ -80,8 +95,9 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="res_1.qrc">
-      <normaloff>:/img/G:/My Drive/Metropolia/Innovation_Project/UI/img/dslr-camera.png</normaloff>:/img/G:/My Drive/Metropolia/Innovation_Project/UI/img/dslr-camera.png</iconset>
+     <iconset>
+      <normaloff>img/dslr-camera.png</normaloff>
+      <normalon>img/dslr-camera.png</normalon>img/dslr-camera.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -96,10 +112,10 @@
    <widget class="QPushButton" name="record_button">
     <property name="geometry">
      <rect>
-      <x>730</x>
-      <y>270</y>
-      <width>51</width>
-      <height>51</height>
+      <x>760</x>
+      <y>300</y>
+      <width>40</width>
+      <height>40</height>
      </rect>
     </property>
     <property name="locale">
@@ -109,8 +125,9 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="res_1.qrc">
-      <normaloff>:/img/G:/My Drive/Metropolia/Innovation_Project/UI/img/record.png</normaloff>:/img/G:/My Drive/Metropolia/Innovation_Project/UI/img/record.png</iconset>
+     <iconset>
+      <normaloff>img/record.png</normaloff>
+      <normalon>img/record.png</normalon>img/record.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -135,7 +152,21 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255)</string>
+     <string notr="true">QLabel {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff; /* White text */
+    background-color: #2c3e50; /* Dark blue background */
+    border-radius: 10px;
+    padding: 10px;
+}
+QLCDNumber {
+    background-color: rgb(0, 49, 71); /* Teal color */
+    color: #ffffff; /* White text */
+    border-radius: 8px;
+    padding: 10px;
+}</string>
     </property>
     <property name="locale">
      <locale language="English" country="UnitedStates"/>
@@ -154,7 +185,21 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255)</string>
+     <string notr="true">QLabel {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff; /* White text */
+    background-color: #2c3e50; /* Dark blue background */
+    border-radius: 10px;
+    padding: 10px;
+}
+QLCDNumber {
+    background-color: rgb(0, 49, 71); /* Teal color */
+    color: #ffffff; /* White text */
+    border-radius: 8px;
+    padding: 10px;
+}</string>
     </property>
     <property name="locale">
      <locale language="English" country="UnitedStates"/>
@@ -216,13 +261,13 @@
      <enum>Qt::PlainText</enum>
     </property>
    </widget>
-   <widget class="QProgressBar" name="front_battery">
+   <widget class="QProgressBar" name="primary_battery">
     <property name="geometry">
      <rect>
       <x>737</x>
       <y>20</y>
       <width>91</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -232,7 +277,21 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255)</string>
+     <string notr="true">QProgressBar {
+    border: 2px solid #2c3e50; /* Dark blue border */
+    border-radius: 8px;
+    background-color: #bdc3c7; /* Light gray background */
+    padding: 5px;  /* Padding around the bar */
+    text-align: right;  /* Center the percentage text */
+    color: #2c3e50; /* Dark blue text */
+}
+
+QProgressBar::chunk {
+    background-color: rgb(31, 167, 88); /* Green color for battery level */
+    width: 20px;
+    border-radius: 10px;
+}
+</string>
     </property>
     <property name="locale">
      <locale language="English" country="UnitedStates"/>
@@ -241,13 +300,13 @@
      <number>24</number>
     </property>
    </widget>
-   <widget class="QProgressBar" name="rear_battery">
+   <widget class="QProgressBar" name="secondary_battery">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>190</x>
       <y>180</y>
       <width>61</width>
-      <height>16</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
@@ -256,7 +315,21 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255)</string>
+     <string notr="true">QProgressBar {
+    border: 2px solid #2c3e50; /* Dark blue border */
+    border-radius: 4px;
+    background-color: #bdc3c7; /* Light gray background */
+    padding: 5px;  /* Padding around the bar */
+    text-align: right;  /* Center the percentage text */
+    color: #2c3e50; /* Dark blue text */
+}
+
+QProgressBar::chunk {
+    background-color: rgb(31, 167, 88); /* Green color for battery level */
+    width: 20px;
+    border-radius: 10px;
+}
+</string>
     </property>
     <property name="locale">
      <locale language="English" country="UnitedStates"/>
@@ -265,10 +338,103 @@
      <number>24</number>
     </property>
    </widget>
+   <widget class="QLabel" name="work_secondary_camera_label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>220</width>
+      <height>140</height>
+     </rect>
+    </property>
+    <property name="locale">
+     <locale language="English" country="UnitedStates"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="work_primary_camera_label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>854</width>
+      <height>480</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>854</width>
+      <height>480</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>3840</width>
+      <height>2160</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(22, 51, 79)</string>
+    </property>
+    <property name="locale">
+     <locale language="English" country="UnitedStates"/>
+    </property>
+    <property name="lineWidth">
+     <number>0</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="nav_mode_button">
+    <property name="geometry">
+     <rect>
+      <x>724</x>
+      <y>100</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>NAVIGATON MODE</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="work_mode_button">
+    <property name="geometry">
+     <rect>
+      <x>724</x>
+      <y>153</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>WORK MODE</string>
+    </property>
+   </widget>
+   <zorder>nav_primary_camera_label</zorder>
+   <zorder>nav_secondary_camera_label</zorder>
+   <zorder>snapshot_button</zorder>
+   <zorder>record_button</zorder>
+   <zorder>primary_battery</zorder>
+   <zorder>work_primary_camera_label</zorder>
+   <zorder>nav_mode_button</zorder>
+   <zorder>work_mode_button</zorder>
+   <zorder>distance_display</zorder>
+   <zorder>distance_label</zorder>
+   <zorder>speed_label</zorder>
+   <zorder>speed_display</zorder>
+   <zorder>secondary_battery</zorder>
+   <zorder>work_secondary_camera_label</zorder>
   </widget>
  </widget>
  <resources>
-  <include location="res_1.qrc"/>
+  <include location="img/resources.qrc"/>
  </resources>
  <connections/>
 </ui>
