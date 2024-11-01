@@ -29,6 +29,15 @@
    <string>RobotUI</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">#centralwidget {
+	background-color: none;
+}
+
+#verticalLayout {
+	
+}</string>
+   </property>
    <widget class="QLabel" name="nav_primary_camera_label">
     <property name="geometry">
      <rect>
@@ -79,74 +88,19 @@
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="snapshot_button">
-    <property name="geometry">
-     <rect>
-      <x>755</x>
-      <y>220</y>
-      <width>51</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="locale">
-     <locale language="English" country="UnitedStates"/>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>img/dslr-camera.png</normaloff>
-      <normalon>img/dslr-camera.png</normalon>img/dslr-camera.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>51</width>
-      <height>51</height>
-     </size>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="record_button">
-    <property name="geometry">
-     <rect>
-      <x>760</x>
-      <y>300</y>
-      <width>40</width>
-      <height>40</height>
-     </rect>
-    </property>
-    <property name="locale">
-     <locale language="English" country="UnitedStates"/>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>img/record.png</normaloff>
-      <normalon>img/record.png</normalon>img/record.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>51</width>
-      <height>51</height>
-     </size>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QLCDNumber" name="speed_display">
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>400</y>
-      <width>121</width>
-      <height>51</height>
+      <y>420</y>
+      <width>110</width>
+      <height>40</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe Print</family>
+     </font>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
@@ -156,15 +110,16 @@
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: bold;
-    color: #ffffff; /* White text */
-    background-color: #2c3e50; /* Dark blue background */
-    border-radius: 10px;
+    color: #ffffff;
+    background-color: rgb(25, 36, 52);
     padding: 10px;
+    border: 1.5px solid #e67e22; 
 }
+
 QLCDNumber {
-    background-color: rgb(0, 49, 71); /* Teal color */
+    background-color: rgb(25, 36, 52);
     color: #ffffff; /* White text */
-    border-radius: 8px;
+    border: 1.5px solid #e67e22; 
     padding: 10px;
 }</string>
     </property>
@@ -175,10 +130,10 @@ QLCDNumber {
    <widget class="QLCDNumber" name="distance_display">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>400</y>
-      <width>121</width>
-      <height>51</height>
+      <x>440</x>
+      <y>420</y>
+      <width>110</width>
+      <height>40</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -189,15 +144,16 @@ QLCDNumber {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: bold;
-    color: #ffffff; /* White text */
-    background-color: #2c3e50; /* Dark blue background */
-    border-radius: 10px;
+    color: #ffffff;
+    background-color: rgb(25, 36, 52);
     padding: 10px;
+    border: 1.5px solid #e67e22; 
 }
+
 QLCDNumber {
-    background-color: rgb(0, 49, 71); /* Teal color */
+    background-color: rgb(25, 36, 52);
     color: #ffffff; /* White text */
-    border-radius: 8px;
+    border: 1.5px solid #e67e22; 
     padding: 10px;
 }</string>
     </property>
@@ -209,87 +165,98 @@ QLCDNumber {
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>360</y>
+      <y>390</y>
       <width>111</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>14</pointsize>
-      <bold>true</bold>
+      <family>Trebuchet MS</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255)</string>
+     <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background-color: NONE;
+}</string>
     </property>
     <property name="locale">
      <locale language="English" country="UnitedStates"/>
     </property>
     <property name="text">
-     <string>Speed (m/s)</string>
+     <string>SPEED (m/s)</string>
     </property>
     <property name="textFormat">
-     <enum>Qt::PlainText</enum>
+     <enum>Qt::TextFormat::PlainText</enum>
     </property>
    </widget>
    <widget class="QLabel" name="distance_label">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>360</y>
+      <x>440</x>
+      <y>390</y>
       <width>121</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>14</pointsize>
-      <bold>true</bold>
+      <family>Trebuchet MS</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255)</string>
+     <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background-color: NONE;
+}</string>
     </property>
     <property name="locale">
      <locale language="English" country="UnitedStates"/>
     </property>
     <property name="text">
-     <string>Distance (m)</string>
+     <string>DISTANCE (m)</string>
     </property>
     <property name="textFormat">
-     <enum>Qt::PlainText</enum>
+     <enum>Qt::TextFormat::PlainText</enum>
     </property>
    </widget>
    <widget class="QProgressBar" name="primary_battery">
     <property name="geometry">
      <rect>
-      <x>737</x>
+      <x>757</x>
       <y>20</y>
-      <width>91</width>
+      <width>71</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
-      <bold>true</bold>
+      <family>Trebuchet MS</family>
+      <pointsize>10</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QProgressBar {
-    border: 2px solid #2c3e50; /* Dark blue border */
-    border-radius: 8px;
-    background-color: #bdc3c7; /* Light gray background */
-    padding: 5px;  /* Padding around the bar */
-    text-align: right;  /* Center the percentage text */
-    color: #2c3e50; /* Dark blue text */
+    border: 1.5px solid #e67e22; 
+    border-radius: 7px; 
+    background-color: rgb(25, 36, 52);
+    padding: 8px;
+    text-align: right;
+    color: #ffffff;
+	font: 10pt &quot;Trebuchet MS&quot;;
 }
 
 QProgressBar::chunk {
-    background-color: rgb(31, 167, 88); /* Green color for battery level */
-    width: 20px;
-    border-radius: 10px;
+    background-color: #e67e22;
+    border-radius: 10px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 </string>
     </property>
@@ -311,23 +278,27 @@ QProgressBar::chunk {
     </property>
     <property name="font">
      <font>
-      <bold>true</bold>
+      <family>Trebuchet MS</family>
+      <pointsize>8</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QProgressBar {
-    border: 2px solid #2c3e50; /* Dark blue border */
-    border-radius: 4px;
-    background-color: #bdc3c7; /* Light gray background */
-    padding: 5px;  /* Padding around the bar */
-    text-align: right;  /* Center the percentage text */
-    color: #2c3e50; /* Dark blue text */
+    border: 1px solid #e67e22; 
+    border-radius: 5px; 
+    background-color: #2c3e50; 
+    padding: 5px;
+    text-align: right;
+    color: #ffffff; 
+	font: 8pt &quot;Trebuchet MS&quot;;
 }
 
 QProgressBar::chunk {
-    background-color: rgb(31, 167, 88); /* Green color for battery level */
-    width: 20px;
-    border-radius: 10px;
+    background-color: #e67e22;
+    border-radius: 5px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 </string>
     </property>
@@ -388,48 +359,129 @@ QProgressBar::chunk {
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="nav_mode_button">
+   <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>724</x>
-      <y>100</y>
-      <width>111</width>
-      <height>31</height>
+      <x>760</x>
+      <y>70</y>
+      <width>71</width>
+      <height>391</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>NAVIGATON MODE</string>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="nav_mode_button">
+       <property name="styleSheet">
+        <string notr="true">padding: 10px</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>img/navigation.png</normaloff>img/navigation.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="work_mode_button">
+       <property name="styleSheet">
+        <string notr="true">padding: 10px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>img/work1.png</normaloff>img/work1.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="snapshot_button">
+       <property name="styleSheet">
+        <string notr="true">padding: 10px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>img/dslr-camera.png</normaloff>
+         <normalon>:/icons/dslr-camera.png</normalon>img/dslr-camera.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="record_button">
+       <property name="styleSheet">
+        <string notr="true">padding: 10px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>img/record.png</normaloff>img/record.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="marker_button">
+       <property name="styleSheet">
+        <string notr="true">padding: 10px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>img/mark-location.png</normaloff>img/mark-location.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="QPushButton" name="work_mode_button">
-    <property name="geometry">
-     <rect>
-      <x>724</x>
-      <y>153</y>
-      <width>111</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>WORK MODE</string>
-    </property>
-   </widget>
+   <zorder>work_primary_camera_label</zorder>
    <zorder>nav_primary_camera_label</zorder>
    <zorder>nav_secondary_camera_label</zorder>
-   <zorder>snapshot_button</zorder>
-   <zorder>record_button</zorder>
    <zorder>primary_battery</zorder>
-   <zorder>work_primary_camera_label</zorder>
-   <zorder>nav_mode_button</zorder>
-   <zorder>work_mode_button</zorder>
    <zorder>distance_display</zorder>
    <zorder>distance_label</zorder>
    <zorder>speed_label</zorder>
    <zorder>speed_display</zorder>
    <zorder>secondary_battery</zorder>
+   <zorder>verticalLayoutWidget</zorder>
    <zorder>work_secondary_camera_label</zorder>
   </widget>
  </widget>

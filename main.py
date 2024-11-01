@@ -5,6 +5,7 @@ from PyQt6.QtWidgets import QApplication, QMainWindow
 from PyQt6.QtGui import QImage, QPixmap
 from PyQt6.QtCore import QTimer, Qt
 from ui_main import Ui_RobotUIApp  # Import the generated UI class
+from mock_camera_feed import MockCamera, MovingShapeCamera
 
 class RobotUI(QMainWindow):
     def __init__(self):
@@ -30,20 +31,23 @@ class RobotUI(QMainWindow):
         self.work_mode_button.clicked.connect(self.set_work_mode)
         self.nav_mode_button.clicked.connect(self.set_navigation_mode)
 
+        # Connect mouse click events for secondary cameras
+        self.nav_secondary_camera.mousePressEvent = self.swap_nav_cameras
+        self.work_secondary_camera.mousePressEvent = self.swap_work_cameras
+
         # Camera feeds initialization
-        self.nav_primary_camera_feed = 0  # Change this to GoPro URL
-        self.nav_secondary_camera_feed = "rtmp://localhost/live/gopro_max_stream"  # Change this to GoPro URL
+        self.nav_primary_camera_feed = "rtmp://192.168.0.50:1935/live/mystream"
+        self.nav_secondary_camera_feed = "rtmp://192.168.0.50:1935/live/mystream2"
         self.work_primary_camera_feed = 0  # Change this to GoPro URL
         self.work_secondary_camera_feed = 0  # Change this to GoPro URL
 
         # Open camera feeds
-        self.nav_capture_primary = cv2.VideoCapture(self.nav_primary_camera_feed)
-        self.nav_capture_secondary = cv2.VideoCapture(self.nav_secondary_camera_feed)  # using this for testing, replace these with the respective gopro feed
-        self.work_capture_primary = self.nav_capture_primary
-        self.work_capture_secondary = self.nav_capture_primary
+        self.nav_capture_primary = cv2.VideoCapture(0)
+        self.nav_capture_secondary = MockCamera()
+        self.work_capture_primary = self.nav_capture_primary # using this for testing, replace these with the respective gopro feed
+        self.work_capture_secondary = MovingShapeCamera()
 
         # Set up the camera
-        self.cap = cv2.VideoCapture(0)  # Open the laptop's camera (temporary solution)
         self.camera_timer = QTimer(self)
         self.camera_timer.timeout.connect(self.update_camera_feed)
         self.camera_timer.start(100)  # Update every 100 ms
@@ -54,6 +58,14 @@ class RobotUI(QMainWindow):
         self.data_timer.start(1000)  # Update every second
 
         self.set_navigation_mode()  # Start in navigation mode
+
+    def swap_nav_cameras(self, event):
+        self.nav_capture_primary, self.nav_capture_secondary = self.nav_capture_secondary, self.nav_capture_primary
+        self.update_camera_feed()
+
+    def swap_work_cameras(self, event):
+        self.work_capture_primary, self.work_capture_secondary = self.work_capture_secondary, self.work_capture_primary
+        self.update_camera_feed()
 
     def set_work_mode(self):
         # Show work mode camera widgets and hide navigation mode camera widgets
@@ -84,11 +96,16 @@ class RobotUI(QMainWindow):
             bytes_per_line = 3 * width
             qimg = QImage(frame.data, width, height, bytes_per_line, QImage.Format.Format_RGB888)
 
-            # Convert to QPixmap and scale with respect to QLabel size
+            # Convert to QPixmap
             pixmap = QPixmap.fromImage(qimg)
-            scaled_pixmap = pixmap.scaled(label.size(), Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
 
+            # Scale the pixmap to fit the label while preserving the aspect ratio
+            scaled_pixmap = pixmap.scaled(label.size(), Qt.AspectRatioMode.KeepAspectRatioByExpanding,
+                                          Qt.TransformationMode.SmoothTransformation)
+
+            # Set the scaled pixmap to the label
             label.setPixmap(scaled_pixmap)
+            label.setScaledContents(True)  # Ensure the label scales its contents
             label.repaint()  # Ensure QLabel refreshes to display the new frame
 
     def closeEvent(self, event):
