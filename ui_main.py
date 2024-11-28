@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'main.ui'
+# Form implementation generated from reading ui file 'UI_phase1.ui'
 #
 # Created by: PyQt6 UI code generator 6.7.1
 #
@@ -14,7 +14,7 @@ class Ui_RobotUIApp(object):
         RobotUIApp.setObjectName("RobotUIApp")
         RobotUIApp.setEnabled(True)
         RobotUIApp.resize(854, 480)
-        RobotUIApp.setMinimumSize(QtCore.QSize(854, 480))
+        RobotUIApp.setMinimumSize(QtCore.QSize(640, 480))
         RobotUIApp.setMaximumSize(QtCore.QSize(3840, 2160))
         self.centralwidget = QtWidgets.QWidget(parent=RobotUIApp)
         self.centralwidget.setStyleSheet("#centralwidget {\n"
@@ -64,7 +64,7 @@ class Ui_RobotUIApp(object):
         self.speed_display.setLocale(QtCore.QLocale(QtCore.QLocale.Language.English, QtCore.QLocale.Country.UnitedStates))
         self.speed_display.setObjectName("speed_display")
         self.distance_display = QtWidgets.QLCDNumber(parent=self.centralwidget)
-        self.distance_display.setGeometry(QtCore.QRect(440, 420, 110, 40))
+        self.distance_display.setGeometry(QtCore.QRect(480, 420, 110, 40))
         self.distance_display.setAutoFillBackground(False)
         self.distance_display.setStyleSheet("QLabel {\n"
 "    font-family: \'Roboto\', sans-serif;\n"
@@ -99,7 +99,7 @@ class Ui_RobotUIApp(object):
         self.speed_label.setTextFormat(QtCore.Qt.TextFormat.PlainText)
         self.speed_label.setObjectName("speed_label")
         self.distance_label = QtWidgets.QLabel(parent=self.centralwidget)
-        self.distance_label.setGeometry(QtCore.QRect(440, 390, 121, 31))
+        self.distance_label.setGeometry(QtCore.QRect(480, 390, 121, 31))
         font = QtGui.QFont()
         font.setFamily("Trebuchet MS")
         font.setPointSize(10)
@@ -112,60 +112,6 @@ class Ui_RobotUIApp(object):
         self.distance_label.setLocale(QtCore.QLocale(QtCore.QLocale.Language.English, QtCore.QLocale.Country.UnitedStates))
         self.distance_label.setTextFormat(QtCore.Qt.TextFormat.PlainText)
         self.distance_label.setObjectName("distance_label")
-        self.primary_battery = QtWidgets.QProgressBar(parent=self.centralwidget)
-        self.primary_battery.setGeometry(QtCore.QRect(757, 20, 71, 31))
-        font = QtGui.QFont()
-        font.setFamily("Trebuchet MS")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setItalic(False)
-        self.primary_battery.setFont(font)
-        self.primary_battery.setStyleSheet("QProgressBar {\n"
-"    border: 1.5px solid #e67e22; \n"
-"    border-radius: 7px; \n"
-"    background-color: rgb(25, 36, 52);\n"
-"    padding: 8px;\n"
-"    text-align: right;\n"
-"    color: #ffffff;\n"
-"    font: 10pt \"Trebuchet MS\";\n"
-"}\n"
-"\n"
-"QProgressBar::chunk {\n"
-"    background-color: #e67e22;\n"
-"    border-radius: 10px; \n"
-"    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);\n"
-"}\n"
-"")
-        self.primary_battery.setLocale(QtCore.QLocale(QtCore.QLocale.Language.English, QtCore.QLocale.Country.UnitedStates))
-        self.primary_battery.setProperty("value", 24)
-        self.primary_battery.setObjectName("primary_battery")
-        self.secondary_battery = QtWidgets.QProgressBar(parent=self.centralwidget)
-        self.secondary_battery.setGeometry(QtCore.QRect(190, 180, 61, 21))
-        font = QtGui.QFont()
-        font.setFamily("Trebuchet MS")
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setItalic(False)
-        self.secondary_battery.setFont(font)
-        self.secondary_battery.setStyleSheet("QProgressBar {\n"
-"    border: 1px solid #e67e22; \n"
-"    border-radius: 5px; \n"
-"    background-color: #2c3e50; \n"
-"    padding: 5px;\n"
-"    text-align: right;\n"
-"    color: #ffffff; \n"
-"    font: 8pt \"Trebuchet MS\";\n"
-"}\n"
-"\n"
-"QProgressBar::chunk {\n"
-"    background-color: #e67e22;\n"
-"    border-radius: 5px; \n"
-"    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);\n"
-"}\n"
-"")
-        self.secondary_battery.setLocale(QtCore.QLocale(QtCore.QLocale.Language.English, QtCore.QLocale.Country.UnitedStates))
-        self.secondary_battery.setProperty("value", 24)
-        self.secondary_battery.setObjectName("secondary_battery")
         self.work_secondary_camera_label = QtWidgets.QLabel(parent=self.centralwidget)
         self.work_secondary_camera_label.setGeometry(QtCore.QRect(30, 30, 220, 140))
         self.work_secondary_camera_label.setLocale(QtCore.QLocale(QtCore.QLocale.Language.English, QtCore.QLocale.Country.UnitedStates))
@@ -181,10 +127,11 @@ class Ui_RobotUIApp(object):
         self.work_primary_camera_label.setText("")
         self.work_primary_camera_label.setObjectName("work_primary_camera_label")
         self.verticalLayoutWidget = QtWidgets.QWidget(parent=self.centralwidget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(760, 70, 71, 391))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(760, 20, 71, 441))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setSpacing(7)
         self.verticalLayout.setObjectName("verticalLayout")
         self.nav_mode_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.nav_mode_button.setStyleSheet("padding: 10px")
@@ -204,43 +151,13 @@ class Ui_RobotUIApp(object):
         self.work_mode_button.setIconSize(QtCore.QSize(40, 40))
         self.work_mode_button.setObjectName("work_mode_button")
         self.verticalLayout.addWidget(self.work_mode_button)
-        self.snapshot_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
-        self.snapshot_button.setStyleSheet("padding: 10px;")
-        self.snapshot_button.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("img/dslr-camera.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        icon2.addPixmap(QtGui.QPixmap(":/icons/dslr-camera.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
-        self.snapshot_button.setIcon(icon2)
-        self.snapshot_button.setIconSize(QtCore.QSize(40, 40))
-        self.snapshot_button.setObjectName("snapshot_button")
-        self.verticalLayout.addWidget(self.snapshot_button)
-        self.record_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
-        self.record_button.setStyleSheet("padding: 10px;")
-        self.record_button.setText("")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("img/record.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.record_button.setIcon(icon3)
-        self.record_button.setIconSize(QtCore.QSize(40, 40))
-        self.record_button.setObjectName("record_button")
-        self.verticalLayout.addWidget(self.record_button)
-        self.marker_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
-        self.marker_button.setStyleSheet("padding: 10px;")
-        self.marker_button.setText("")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("img/mark-location.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.marker_button.setIcon(icon4)
-        self.marker_button.setIconSize(QtCore.QSize(40, 40))
-        self.marker_button.setObjectName("marker_button")
-        self.verticalLayout.addWidget(self.marker_button)
         self.work_primary_camera_label.raise_()
         self.nav_primary_camera_label.raise_()
         self.nav_secondary_camera_label.raise_()
-        self.primary_battery.raise_()
         self.distance_display.raise_()
         self.distance_label.raise_()
         self.speed_label.raise_()
         self.speed_display.raise_()
-        self.secondary_battery.raise_()
         self.verticalLayoutWidget.raise_()
         self.work_secondary_camera_label.raise_()
         RobotUIApp.setCentralWidget(self.centralwidget)
@@ -253,13 +170,3 @@ class Ui_RobotUIApp(object):
         RobotUIApp.setWindowTitle(_translate("RobotUIApp", "RobotUI"))
         self.speed_label.setText(_translate("RobotUIApp", "SPEED (m/s)"))
         self.distance_label.setText(_translate("RobotUIApp", "DISTANCE (m)"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    RobotUIApp = QtWidgets.QMainWindow()
-    ui = Ui_RobotUIApp()
-    ui.setupUi(RobotUIApp)
-    RobotUIApp.show()
-    sys.exit(app.exec())

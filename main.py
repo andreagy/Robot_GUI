@@ -20,12 +20,10 @@ class RobotUI(QMainWindow):
         self.work_secondary_camera = self.ui.work_secondary_camera_label
         self.work_mode_button = self.ui.work_mode_button
         self.nav_mode_button = self.ui.nav_mode_button
-        self.snapshot_button = self.ui.snapshot_button
-        self.record_button = self.ui.record_button
+        #self.snapshot_button = self.ui.snapshot_button
+        #self.record_button = self.ui.record_button
         self.speed_display = self.ui.speed_display
         self.distance_display = self.ui.distance_display
-        self.primary_battery = self.ui.primary_battery
-        self.secondary_battery = self.ui.secondary_battery
 
         # Connect buttons to their respective functions
         self.work_mode_button.clicked.connect(self.set_work_mode)
@@ -132,12 +130,6 @@ class RobotUI(QMainWindow):
         # Update dummy distance (assume it's incrementing based on the speed)
         distance = self.distance_display.intValue() + random.randint(1, 3)
         self.distance_display.display(distance)
-
-        # Update dummy battery levels (decreasing over time)
-        front_battery_level = self.primary_battery.value() - random.randint(0, 2)
-        rear_battery_level = self.secondary_battery.value() - random.randint(0, 2)
-        self.primary_battery.setValue(max(0, front_battery_level))
-        self.secondary_battery.setValue(max(0, rear_battery_level))
 
     def closeEvent(self, event):
         # Release the camera when the application is closed
