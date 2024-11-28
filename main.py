@@ -33,16 +33,10 @@ class RobotUI(QMainWindow):
         self.nav_secondary_camera.mousePressEvent = self.swap_nav_cameras
         self.work_secondary_camera.mousePressEvent = self.swap_work_cameras
 
-        # Camera feeds initialization
-        self.nav_primary_camera_feed = "rtmp://192.168.0.50:1935/live/mystream"
-        self.nav_secondary_camera_feed = "rtmp://192.168.0.50:1935/live/mystream2"
-        self.work_primary_camera_feed = 0  # Change this to GoPro URL
-        self.work_secondary_camera_feed = 0  # Change this to GoPro URL
-
         # Open camera feeds
-        self.nav_capture_primary = cv2.VideoCapture(0)
-        self.nav_capture_secondary = MockCamera()
-        self.work_capture_primary = self.nav_capture_primary # using this for testing, replace these with the respective gopro feed
+        self.nav_capture_primary = cv2.VideoCapture("http://192.168.2.2:8000/stream.mjpg")
+        self.nav_capture_secondary = cv2.VideoCapture("rtsp://192.168.2.2:8554/cam2")
+        self.work_capture_primary = cv2.VideoCapture(0) # using this for testing, replace these with the respective gopro feed
         self.work_capture_secondary = MovingShapeCamera()
 
         # Set up the camera
@@ -114,14 +108,6 @@ class RobotUI(QMainWindow):
         self.work_capture_secondary.release()
         event.accept()
 
-    def closeEvent(self, event):
-        # Release all cameras when the application closes
-        self.nav_capture_primary.release()
-        self.nav_capture_secondary.release()
-        self.work_capture_primary.release()
-        self.work_capture_secondary.release()
-        event.accept()
-
     def update_dummy_data(self):
         # Update dummy speed
         speed = random.uniform(0.0, 0.58)  # Random speed between 0 and 0.58 m/s
@@ -130,11 +116,6 @@ class RobotUI(QMainWindow):
         # Update dummy distance (assume it's incrementing based on the speed)
         distance = self.distance_display.intValue() + random.randint(1, 3)
         self.distance_display.display(distance)
-
-    def closeEvent(self, event):
-        # Release the camera when the application is closed
-        self.cap.release()
-        event.accept()
 
 # Main application
 app = QApplication(sys.argv)
