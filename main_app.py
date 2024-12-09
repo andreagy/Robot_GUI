@@ -45,7 +45,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.nav_primary_camera_label = self.nav_primary_camera_label
 
         # Replace QLabel for navigation secondary camera with CameraWidget
-        self.nav_secondary_camera_label = CameraWidget(self.stream2, self.ui.nav_primary_camera_label, parent=self.ui.centralwidget)
+        self.nav_secondary_camera_label = CameraWidget(self.stream2, self.ui.nav_secondary_camera_label, parent=self.ui.centralwidget)
         self.nav_secondary_camera_label.setGeometry(self.ui.nav_secondary_camera_label.geometry())
         self.ui.nav_secondary_camera_label.deleteLater()
         self.ui.nav_secondary_camera_label = self.nav_secondary_camera_label
@@ -57,7 +57,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.work_primary_camera_label = self.work_primary_camera_label
 
         # Replace QLabel for work secondary camera with CameraWidget
-        self.work_secondary_camera_label = CameraWidget(self.stream2, self.ui.nav_primary_camera_label, parent=self.ui.centralwidget)
+        self.work_secondary_camera_label = CameraWidget(self.stream2, self.ui.nav_secondary_camera_label, parent=self.ui.centralwidget)
         self.work_secondary_camera_label.setGeometry(self.ui.work_secondary_camera_label.geometry())
         self.ui.work_secondary_camera_label.deleteLater()
         self.ui.work_secondary_camera_label = self.work_secondary_camera_label
