@@ -34,9 +34,9 @@ class RobotUI(QMainWindow):
         self.work_secondary_camera.mousePressEvent = self.swap_work_cameras
 
         # Open camera feeds
-        self.nav_capture_primary = cv2.VideoCapture("http://192.168.2.2:8000/stream.mjpg")
-        self.nav_capture_secondary = cv2.VideoCapture("rtsp://192.168.2.2:8554/cam2")
-        self.work_capture_primary = cv2.VideoCapture(0) # using this for testing, replace these with the respective gopro feed
+        self.nav_capture_primary = cv2.VideoCapture(0)  # cv2.VideoCapture("rtsp://192.168.2.2:8554/cam1")
+        self.nav_capture_secondary = MockCamera()  # cv2.VideoCapture("rtsp://192.168.2.2:8554/cam2")
+        self.work_capture_primary = self.nav_capture_primary  # using this for testing, replace these with the respective camera feed
         self.work_capture_secondary = MovingShapeCamera()
 
         # Set up the camera
